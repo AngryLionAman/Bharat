@@ -1,0 +1,14 @@
+SMAP
+display_jsp.java
+JSP
+*S JSP
+*F
++ 0 display.jsp
+image/display.jsp
+*L
+1,30:47
+30:77
+31:78,3
+32:81
+35,14:84
+*E
