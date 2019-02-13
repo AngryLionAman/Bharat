@@ -2,6 +2,32 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+         <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+         <%
+             String YOUR_ACTIVITY = "";
+             String QUESTION = "";
+             String ANSWER = "";
+             String TOPIC = "";
+             String USER_PROFILE = "";
+             String ANS = "";
+                         
+            if (request.getParameter("lang") != "hindi") {
+              YOUR_ACTIVITY = "आपकी गतिविधि";
+              QUESTION = "प्रश्न";
+              ANSWER = "उत्तर";
+              TOPIC = "विषय";
+              USER_PROFILE = "उपयोगकर्ता प्रोफ़ाइल";
+              ANS = "उत्तर";
+             
+            } else {
+              YOUR_ACTIVITY = "Your Activity";
+              QUESTION = "Question";
+              ANSWER = "Answer";
+              TOPIC = "Topic";
+              USER_PROFILE = "User Profile";
+              ANS = "Ans";
+             }
+            %>
         <!-- For IE -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -54,10 +80,10 @@
                                                                 Your Activity
                                                             </div>
                                                             <div>
-                                                                <a href="SearchBar.jsp?value=Question&search=<%=request.getParameter("search")%>">Question</a><br>
-                                                                <a href="SearchBar.jsp?value=Answer&search=<%=request.getParameter("search")%>">Answer</a><br>
-                                                                <a href="SearchBar.jsp?value=Topic&search=<%=request.getParameter("search")%>">Topic</a><br>
-                                                                <a href="SearchBar.jsp?value=UserProfile&search=<%=request.getParameter("search")%>">User Profile</a><br>
+                                                                <a href="SearchBar.jsp?value=Question&search=<%=request.getParameter("search")%>"><%=QUESTION%></a><br>
+                                                                <a href="SearchBar.jsp?value=Answer&search=<%=request.getParameter("search")%>"><%=ANSWER%></a><br>
+                                                                <a href="SearchBar.jsp?value=Topic&search=<%=request.getParameter("search")%>"><%=TOPIC%></a><br>
+                                                                <a href="SearchBar.jsp?value=UserProfile&search=<%=request.getParameter("search")%>"><%=USER_PROFILE%></a><br>
                                                             </div>
 
                                                         </div>
@@ -77,7 +103,7 @@
                                                                         }
                                                                         if (ParametrVariable != null) {
                                                                             if (ParametrVariable.equals("Question")) {
-                                                                                out.println("<center><div class=boxHeading> Question </div></center>");
+                                                                                out.println("<center><div class=boxHeading>"+ QUESTION +"</div></center>");
                                                                                 try {
                                                                                     Statement stmt_q = null;
                                                                                     Connection con_q;
@@ -103,7 +129,7 @@
                                                                         }
                                                                         //Staring answer programming....................................................
                                                                         if (ParametrVariable.equals("Answer")) {
-                                                                            out.println("<center><div class=boxHeading> Answer </div></center>");
+                                                                            out.println("<center><div class=boxHeading>"+ ANSWER+"</div></center>");
                                                                             try {
                                                                                 Statement stmt_a = null, stmt_a2 = null;
                                                                                 Connection con_a;
@@ -143,7 +169,7 @@
                                                                             //Starting the topic search program
 
                                                                             if (ParametrVariable.equals("Topic")) {
-                                                                                out.println("<center><div class=boxHeading> Topic </div></center>");
+                                                                                out.println("<center><div class=boxHeading>"+ TOPIC +"</div></center>");
                                                                                 try {
                                                                                     Statement stmt_t = null;
                                                                                     Connection con_t;
@@ -171,7 +197,7 @@
                                                                             //Satting the userprofile search option
 
                                                                             if (ParametrVariable.equals("UserProfile")) {
-                                                                                out.println("<center><div class=boxHeading> User Profile </div></center>");
+                                                                                out.println("<center><div class=boxHeading> "+USER_PROFILE+" </div></center>");
                                                                                 try {
                                                                                     Statement stmt_t = null;
                                                                                     Connection con_t;

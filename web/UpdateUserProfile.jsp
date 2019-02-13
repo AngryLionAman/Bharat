@@ -2,7 +2,84 @@
     <%@include file="site.jsp" %>
     <%  if (session.getAttribute("email") != null) { %>
     <head>
-        <meta charset="UTF-8">
+        <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<meta charset="UTF-8">
+<%
+    String EMAIL = "";
+    String PASSWORD = "";
+    String HOME = "";
+    String LOGIN = "";
+    String SIGNUP = "";
+    String SEARCH = "";
+    String PROFILE = "";
+    String CONTACT_US = "";
+    String ABOUT_US = "";
+    String LOGOUT = "";
+    String SELECT = "";
+    
+    String UPDATE_YOUR_PROFILE_IMAGE = "";
+    String CLICK_HERE_TO_UPDATE = "";
+    String FULL_NAME = "";
+    String NOT_EDITABLE = "";
+    String HIGER_QUALIFICATION = "";
+    String BEST_ACHIEVEMENT = "";
+    String BIO = "";
+    String UPDATE_PROFILE = "";
+    String HIGHER_QUALIFICATION_PLACEHOLDER = "";
+    String BEST_ACHIEVEMENT_PLACEHOLDER = "";
+    String BIO_PLACEHOLDER = "";
+
+    if (request.getParameter("lang") == "eng") {
+        EMAIL = "Email";
+        PASSWORD = "Password";
+        HOME = "Home";
+        LOGIN = "Login";
+        SIGNUP = "SignUp";
+        SEARCH = "Search";
+        PROFILE = "Profile";
+        CONTACT_US = "contact Us";
+        ABOUT_US = "About Us";
+        LOGOUT = "Logout";
+        SELECT = "Select";
+        
+        UPDATE_YOUR_PROFILE_IMAGE = "Update your profile image";
+    CLICK_HERE_TO_UPDATE = "Click here to update";
+    FULL_NAME = "Full Name";
+    NOT_EDITABLE = "Not Editable";
+    HIGER_QUALIFICATION = "Higher Qualification";
+    BEST_ACHIEVEMENT = "Best Achievement";
+    BIO = "Bio";
+    UPDATE_PROFILE = "Update Profile";
+    HIGHER_QUALIFICATION_PLACEHOLDER = "Insert Your Higher Qualification, Ex: B.Tech,BSC,BA";
+    BEST_ACHIEVEMENT_PLACEHOLDER = "Insert Your Best Achievement";
+    BIO_PLACEHOLDER = "Write something about Yourself";
+
+    } else {
+        EMAIL = "ईमेल";
+        PASSWORD = "पासवर्ड";
+        HOME = "होम";
+        LOGIN = "लॉग इन करें";
+        SIGNUP = "नया खाता बनाएँ";
+        SEARCH = "खोजे";
+        PROFILE = "प्रोफ़ाइल";
+        CONTACT_US = "हमसे संपर्क करें";
+        ABOUT_US = "हमारे बारे में";
+        LOGOUT = "बाहर जाये";
+        SELECT = "चयन करें";
+        
+        UPDATE_YOUR_PROFILE_IMAGE = "अपनी प्रोफ़ाइल छवि को अपडेट करें";
+    CLICK_HERE_TO_UPDATE = "अपडेट करने के लिए यहां क्लिक करें";
+    FULL_NAME = "पूरा नाम";
+    NOT_EDITABLE = "बदल नहीं सकते";
+    HIGER_QUALIFICATION = "उच्च योग्यता";
+    BEST_ACHIEVEMENT = "सबसे अच्छी उपलब्धि";
+    BIO = "अपने बारे में";
+    UPDATE_PROFILE = "प्रोफ़ाइल अपडेट करें";
+    HIGHER_QUALIFICATION_PLACEHOLDER = "अपनी उच्च योग्यता डालें, Ex: B.Tech, BSC, BA";
+    BEST_ACHIEVEMENT_PLACEHOLDER = "अपनी सर्वश्रेष्ठ उपलब्धि डालें";
+    BIO_PLACEHOLDER = "अपने बारे में कुछ लिखो";
+    }
+%>
         <!-- For IE -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -66,14 +143,14 @@
                                         <div style="overflow: hidden; padding-right: .5em;">
                                             <form action="SearchBar.jsp">
                                                 <input type="text" style="width: 100%;" name="search" >
-                                                <button type="submit" style="float: right;width: 50px;" />Search</button>
+                                                <button type="submit" style="float: right;width: 50px;" /><%=SEARCH%></button>
                                             </form>
                                         </div>
 
 
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 float-right textalign-right">
-                                        <a href="index.jsp" class="helpicon" style="color: white;padding-right: 50px; ">Home</a>
+                                        <a href="index.jsp" class="helpicon" style="color: white;padding-right: 50px; "><%=HOME%></a>
                                         <a href="help.html"><img src="images/home/HelpIcon.png" class="helpicon"/></a>
 
 
@@ -121,10 +198,10 @@
                                         %>
                                         <select class="helpicon w100 username" onchange="location = this.value;">
                                             <option value="index.jsp"><%=name%></option>
-                                            <option value="profile.jsp?ID=<%=id_of_user%>">Profile</option>
-                                            <option value="AboutUs.html">About us</option>
-                                            <option value="ContactUs.jsp">Contact Us</option>
-                                            <option value="Logout.jsp">Logout</option>
+                                            <option value="profile.jsp?ID=<%=id_of_user%>"><%=PROFILE%></option>
+                                            <option value="AboutUs.html"><%=ABOUT_US%></option>
+                                            <option value="ContactUs.jsp"><%=CONTACT_US%></option>
+                                            <option value="Logout.jsp"><%=LOGOUT%></option>
                                         </select>
                                     </div>
                                     </div>
@@ -143,7 +220,7 @@
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="themeBox" style="height:auto;">
                                                                    
-                                                                        <label for="fname">Update your profile image</label>
+                                                                        <label for="fname"><%=UPDATE_YOUR_PROFILE_IMAGE%></label>
                                                                         <div class="boxHeading">
                                                                             <div>
                                                                                 <img src="images/UploadedImage/<%=ImagePath%>" alt="Image" style="width:20%; margin:10px 0px 0px; border:1px solid #ddd;">
@@ -151,45 +228,46 @@
                                                                             <div>
                                                                                  <form action="UploadImage.jsp" method="post" enctype="multipart/form-data">
                                                                                      <input type="file" name="photo" required="">
-                                                                                <input type="submit" value="Click here to update">
+                                                                                <input type="submit" value="<%=CLICK_HERE_TO_UPDATE%>">
                                                                                      </form>
                                                                             </div>
                                                                         </div>
                                                                          <form action="SubmitUpdatedUserProfile.jsp" method="post" >
-                                                                        <label for="fname">Full Name (Not Editable)</label>
+                                                                        <label for="fname"><%=FULL_NAME%> (<%=NOT_EDITABLE%>)</label>
                                                                         <div class="boxHeading">
                                                                             <input type="text" id="fname" name="fullname" value="<%=name%> <%=lastname%>" readonly="" required="">
                                                                         </div>
-                                                                        <label for="fname">Email (Not Editable)</label>
+                                                                        <label for="fname"><%=EMAIL%> (<%=NOT_EDITABLE%>)</label>
                                                                         <div class="boxHeading">
                                                                             <input type="text" id="fname" name="email" value="<%=Storedemail%>" readonly="" required="">
                                                                         </div>
-                                                                        <label for="fname">Higher Qualification</label>
+                                                                        <label for="fname"><%=HIGER_QUALIFICATION%></label>
                                                                         <% if (higher_colification != null) {%>
                                                                         <div class="boxHeading">
                                                                             <input type="text" id="fname" name="HigherQualification" value="<%=higher_colification%>" >
                                                                         </div><% } else { %>
                                                                         <div class="boxHeading">
-                                                                            <input type="text" id="fname" name="HigherQualification" placeholder="Insert Your Higher Qualification.Ex: B.Tech,BA,BSC" >
+                                                                            <input type="text" id="fname" name="HigherQualification" placeholder="<%=HIGHER_QUALIFICATION_PLACEHOLDER%>" >
                                                                         </div><% }%>
-                                                                        <label for="fname">Best Achievement</label>
+                                                                        <label for="fname"><%=BEST_ACHIEVEMENT%></label>
                                                                         <% if (BestAchievement != null) {%>
+                                                                        <div class="boxHeading">
                                                                         <div class="boxHeading">
                                                                             <input type="text" id="fname" name="BestAchievement" value="<%=BestAchievement%>" >
                                                                         </div><% } else { %>
                                                                         <div class="boxHeading">
-                                                                            <input type="text" id="fname" name="BestAchievement" placeholder="Insert Your Best Achievement" >
+                                                                            <input type="text" id="fname" name="BestAchievement" placeholder="<%=BEST_ACHIEVEMENT_PLACEHOLDER%>" >
                                                                         </div><% }%>
-                                                                        <label for="fname">Bio</label>
+                                                                        <label for="fname"><%=BIO%></label>
                                                                         <% if (bio != null) {%>
                                                                         <div class="boxHeading">
                                                                             <textarea type="text" class="anstext" name="bio"  ><%=bio%></textarea>
                                                                         </div><% } else { %>
                                                                         <div class="boxHeading">
-                                                                            <input type="text" id="fname" name="bio" placeholder="Write something about Yourself" >
+                                                                            <input type="text" id="fname" name="bio" placeholder="<%=BIO_PLACEHOLDER%>" >
                                                                         </div><% }%>
                                                                         <div class="float-right margintop20" style="vertical-align:bottom">
-                                                                            <button type="submit" class="btn" data-toggle="modal" >Update Profile</button>
+                                                                            <button type="submit" class="btn" data-toggle="modal" ><%=UPDATE_PROFILE%></button>
                                                                         </div>
 
                                                                     </form>

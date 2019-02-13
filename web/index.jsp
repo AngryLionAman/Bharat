@@ -19,7 +19,6 @@
             String PLEASE_LOGIN_FIRST = "";
             String CLOSE = "";
             String CLICK_HERE_TO_LOGIN ="";
-            
             String FOLLOWED_TOPIC = "";
             String CLICK_HERE_TO_MORE_TOPIC = "";
             String PUT_YOUR_QUESTION_HERE = "";
@@ -226,7 +225,7 @@
                                         <div class="boxHeading">
                                             <%=POST_SOMETHING%>
                                         </div>
-                                        <div><textarea type="text" class="anstext" placeholder="Post something here" data-toggle="modal" data-target="#myModal"></textarea></div>
+                                        <div><textarea type="text" class="anstext" placeholder="<%=POST_YOUR_QUESTION_HERE%>" data-toggle="modal" data-target="#myModal"></textarea></div>
 
                                         <div class="float-right margintop20" style="vertical-align:bottom">
                                             <button type="button" class="btn" data-toggle="modal" data-target="#myModal"><%=POST%></button>

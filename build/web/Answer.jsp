@@ -1,4 +1,53 @@
 <html lang="en"><head>
+        <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+        
+         <%
+             String FOLLOWED_TOPIC = "";
+             String QUESTION = "";
+             String POSTED_BY = "";
+             String ANSWER = "";
+             String BE_THE_FIRST_PERSON = "";
+             String SUBMIT = "";
+             String RELATED_QUESTION = "";
+             String COMPLETE_YOUR_PROFILE = "";
+             String TRENDING_QUESTION = ""; 
+             String TOPIC_YOU_MAY_LIKE = "";
+             String ANSWERED_BY = "";
+             String NO_RELATED_QUESTION_FOUND = "";
+                       
+            if (request.getParameter("lang") != "hindi") {
+              
+                TOPIC_YOU_MAY_LIKE = "विषय आपको पसंद आ सकता है";
+                POSTED_BY = "द्वारा प्रकाशित";
+                TRENDING_QUESTION = "सक्रिय प्रश्न";
+                FOLLOWED_TOPIC = "विषय जो आपको पसंद है";
+                RELATED_QUESTION = "संबंधित सवाल";
+                
+                QUESTION = "प्रशन";
+                ANSWER = "उत्तर";
+                BE_THE_FIRST_PERSON = "इस प्रश्न का उत्तर देने वाले पहले व्यक्ति बनें";
+                SUBMIT = "जमा करें";
+                COMPLETE_YOUR_PROFILE = "अपनी प्रोफाइल पूरी कीजिए";
+                ANSWERED_BY = "द्वारा उत्तर दिया गया";
+                NO_RELATED_QUESTION_FOUND = "कोई संबंधित प्रश्न नहीं मिला"; 
+            } else {
+               
+                TOPIC_YOU_MAY_LIKE = "Topic You May Like";
+                POSTED_BY = "Posted By";
+                TRENDING_QUESTION = "Tranding Question";
+                FOLLOWED_TOPIC = "Followed Topic";
+                RELATED_QUESTION = "Related Question";    
+                
+                QUESTION = "Ques";
+                ANSWER = "Answer";
+                BE_THE_FIRST_PERSON = "Be the first person to answer this question";
+                SUBMIT = "Submit";
+                COMPLETE_YOUR_PROFILE = "Complete your profile";
+                ANSWERED_BY = "Answer By";
+                NO_RELATED_QUESTION_FOUND = "No Related Question Found ";
+            }
+            %>
+        
         <%String Question = request.getParameter("Id");%>
         <script src="ckeditor/ckeditor.js"></script>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -88,7 +137,7 @@
                                                     <%  if (session.getAttribute("email") == null) { %>
                                                     <div class="themeBox" style="height:auto;">
                                                         <div class="boxHeading">
-                                                            Topic You May Like
+                                                            <%=TOPIC_YOU_MAY_LIKE%>
                                                         </div>
                                                         <div>
                                                             <ul>
@@ -130,7 +179,7 @@
 
                                                     <div class="themeBox" style="height:auto;">
                                                         <div class="boxHeading" >
-                                                            Followed Topic
+                                                            <%=FOLLOWED_TOPIC%>
                                                         </div>
 
                                                         <%
@@ -200,7 +249,7 @@
 
                                                                 <div class="boxHeading marginbot10">
 
-                                                                    Ques : <%=Question%> ?
+                                                                    <%=QUESTION%> : <%=Question%> ?
                                                                 </div>
                                                                 <%
                                                                     try {
@@ -230,12 +279,12 @@
                                                                 %>
                                                                 <div class="questionArea">
 
-                                                                    <div class="postedBy">Posted By :<a href="profile.jsp?ID=<%=q_asked_by_user%>"><%=firstname_of_user_who_asked_the_question%></a> </div>
+                                                                    <div class="postedBy"><%=POSTED_BY%> :<a href="profile.jsp?ID=<%=q_asked_by_user%>"><%=firstname_of_user_who_asked_the_question%></a> </div>
 
                                                                 </div>
 
                                                             </div>
-                                                            <div class="boxHeading marginbot10">Answer:</div>
+                                                            <div class="boxHeading marginbot10"><%=ANSWER%>:</div>
 
                                                             <%
                                                                 Statement stmt2, stmt4 = null;
@@ -267,7 +316,7 @@
                                                                     <%=answer%> 
                                                                 </div>
                                                                 <div class="questionArea">
-                                                                    <div class="postedBy">Answered By :<a href="profile.jsp?ID=<%=who_gave_answer%>"><%=firstname%></a> </div>
+                                                                    <div class="postedBy"><%=ANSWERED_BY%> :<a href="profile.jsp?ID=<%=who_gave_answer%>"><%=firstname%></a> </div>
                                                                 </div>
                                                             </div>
                                                             <%
@@ -278,7 +327,7 @@
                                                             %>
                                                             <div class="themeBox" style="height:auto;">
                                                                 <div class="boxHeading marginbot10">
-                                                                    Be the first person to answer this question
+                                                                    <%=BE_THE_FIRST_PERSON%>
                                                                 </div>
                                                             </div>
                                                             <%
@@ -294,7 +343,7 @@
                                                             %>
                                                             <form name="submitquestion" method="post" action="SubmitAnswer.jsp?_id_of_user=<%=_id_of_user%>&q_id=<%=q_id%>&URL=<%=request.getRequestURL() + "?" + request.getQueryString()%>">
                                                                 <textarea class="ckeditor" name="answer" required=""></textarea>
-                                                                <input type="submit" name="Post" value="Submit"> 
+                                                                <input type="submit" name="Post" value="<%=SUBMIT%>"> 
                                                             </form>
 
 
@@ -308,7 +357,7 @@
 
                                                     <div class="themeBox" style="height:500px;overflow-y: auto;">
                                                         <div class="boxHeading">
-                                                            Related Question
+                                                            <%=RELATED_QUESTION%>
                                                         </div>
                                                         <div>
                                                             <%
@@ -343,7 +392,10 @@
                                                                             }
                                                                         }
                                                                         
-                                                                    }if(count == 0) out.println("   No Reaalted Question Found !!!");
+                                                                    }if(count == 0){ 
+                                                                        if(request.getParameter("lang") != "hindi")  out.println(NO_RELATED_QUESTION_FOUND+" !!!");
+                                                                        else out.println(NO_RELATED_QUESTION_FOUND+"!!!");
+                                                                                }
                                                                     rs_detail.close();
                                                                     stmt_detail.close();
                                                                     stmt.close();
@@ -361,7 +413,7 @@
                                                     %>
                                                     <div class="themeBox" style="height:auto;">
                                                         <div class="boxHeading">
-                                                            Complete Your Profile
+                                                            <%=COMPLETE_YOUR_PROFILE%>
                                                         </div>
                                                         <div><jsp:include page="CompleteUserProfile.jsp" /></div>
 
@@ -372,7 +424,7 @@
                                                     %>
                                                     <div class="themeBox" style="height:auto;">
                                                         <div class="boxHeading">
-                                                            Trending Question
+                                                            <%=TRENDING_QUESTION%>
                                                         </div>
                                                         <div>
                                                             <jsp:include page="TrendingQuestion.jsp" />

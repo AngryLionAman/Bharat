@@ -1,5 +1,27 @@
 <html lang="en"><head>
         <%@include file="site.jsp" %>
+         <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+        
+         <%
+             String SELECT_AT_LEAST_FIVE_TOPIC = "";
+             String FOLLOW = "";
+             String NOTE = "";
+             String SEARCH = "";
+             
+            if (request.getParameter("lang") != "hindi") {
+              
+               SELECT_AT_LEAST_FIVE_TOPIC = "कम से कम पांच विषय का चयन करें"; 
+               FOLLOW = "फॉलो करे ";
+               NOTE = "नोट: यदि आप डेस्कटॉप ब्राउज़र का उपयोग कर रहे हैं तो <b> CTRL </b> दबाएं और विषय का चयन करें";
+               SEARCH = "खोजे";
+            } else {
+               
+               SELECT_AT_LEAST_FIVE_TOPIC = "Select at least five topic";
+               FOLLOW = "Follow";
+               NOTE = "Note : If you are using desktop browser then press <b>CTRL</b> and select topic";
+               SEARCH = "Search";
+            }
+            %>
         <meta charset="UTF-8">
         <!-- For IE -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +55,7 @@
                                         <div style="overflow: hidden; padding-right: .5em;">
                                             <form action="SearchBar.jsp">
                                                 <input type="text" style="width: 100%;" name="search" required="" >
-                                                <button type="submit" style="float: right;width: 50px;" />Search</button>
+                                                <button type="submit" style="float: right;width: 50px;" /><%=SEARCH%></button>
                                             </form>
                                         </div>
 
@@ -52,7 +74,7 @@
                                                     <div class="row"><center>                                                           
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="themeBox" style="height:210px;">  
-                                                                    <label for="fname">Select at least five topic</label>
+                                                                    <label for="fname"><%=SELECT_AT_LEAST_FIVE_TOPIC%></label>
                                                                     <form action="SubmitProfileFollowTopic.jsp" method="get" name="dropdown_selection">                                                                            
                                                                         <select id="s5" multiple="multiple" name="MultipleSelectedTopic" >
                                                                             <%@page language="java"%>
@@ -81,12 +103,12 @@
                                                                             %>
                                                                         </select>                                                                                 
                                                                         <div class="float-right margintop20" style="vertical-align:bottom">
-                                                                            <button type="submit" class="btn" data-toggle="modal" >Follow</button>
+                                                                            <button type="submit" class="btn" data-toggle="modal" ><%=FOLLOW%></button>
                                                                         </div>
                                                                     </form>                                                                        
                                                                 </div>
                                                             </div>
-                                                                        <div style="color:red;">Note: If you are using desktop browser then press <b>CTRL</b> and select topic</div>
+                                                                        <div style="color:red;"><%=NOTE%></div>
 
                                                         </center> </div>
 

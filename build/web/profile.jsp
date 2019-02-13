@@ -1,6 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-      <%@include file="site.jsp" %>
+    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <meta charset="UTF-8">
+    <%
+        String EMAIL = "";
+        String PASSWORD = "";
+        String HOME = "";
+        String LOGIN = "";
+        String SIGNUP = "";
+        String SEARCH = "";
+        String PROFILE = "";
+        String CONTACT_US = "";
+        String ABOUT_US = "";
+        String LOGOUT = "";
+        String SELECT = "";
+        String PROFILE_DETAILS = "";
+        String UPDATE_YOUR_PROFILE_IMAGE = "";
+        String NAME = "";
+        String MAIL_ID = "";
+        String HIGHER_QUALIFICATION = "";
+        String BEST_ACHIEVEMENT = "";
+        String BIO = "";
+        String COMPLETE_YOUR_PROFILE = "";
+        String YOUR_ACTIVITY = "";
+        String QUESTION = "";
+        String ANSWER = "";
+        String TOPIC_FOLLOWED = "";
+        String FOLLOWING = "";
+        String FOLLOWERS = "";
+        String BLOG = "";
+        String QUOTES = "";
+        String ADD_MORE_QUESTION = "";
+        String FOLLOW_MORE_TOPIC = "";
+        String NOT_FOLLOWING_ANY_USER = "";
+        String FOLLOW_MORE_USER = "";
+        String NO_BLOG_POSTED_YET = "";
+        String BLOG_ABOUT_SOMETHING = "";
+        String NO_QUESTES_POSTED_YET = "";
+        String ADD_MORE_QUOTES = "";
+        String NOT_FOLLOWED_BY_ANY_USER = "";
+
+        String POST_YOUR_QUESTION_HERE = "";
+        String PLEASE_LOGIN_FIRST = "";
+        String CLOSE = "";
+        String CLICK_HERE_TO_LOGIN = "";
+        String FOLLOWED_TOPIC = "";
+        String CLICK_HERE_TO_MORE_TOPIC = "";
+        String PUT_YOUR_QUESTION_HERE = "";
+        String EX = "";
+        String TAG_SUGGESTION_DESCRIPTION = "";
+        String TAG_EXMAPLE = "";
+        String POST = "";
+
+        if (request.getParameter("lang") == "eng") {
+            EMAIL = "Email";
+            PASSWORD = "Password";
+            HOME = "Home";
+            LOGIN = "Login";
+            SIGNUP = "SignUp";
+            SEARCH = "Search";
+
+            PROFILE = "Profile";
+            CONTACT_US = "contact Us";
+            ABOUT_US = "About Us";
+            LOGOUT = "Logout";
+            SELECT = "Select";
+
+            PROFILE_DETAILS = "Profile Details ";
+            UPDATE_YOUR_PROFILE_IMAGE = "Update your profile image";
+            NAME = "Name ";
+            MAIL_ID = "Mail Id ";
+            HIGHER_QUALIFICATION = "Higher Qualification ";
+            BEST_ACHIEVEMENT = "Best Achievement";
+            BIO = "Bio ";
+            COMPLETE_YOUR_PROFILE = "Complete your profile";
+            YOUR_ACTIVITY = "Your Activity ";
+            QUESTION = "Question";
+            ANSWER = "Answer";
+            TOPIC_FOLLOWED = "Topic Followed";
+            FOLLOWING = "Following";
+            FOLLOWERS = "Followers";
+            BLOG = "Blog";
+            QUOTES = "Quotes";
+            ADD_MORE_QUESTION = "Add more question";
+            FOLLOW_MORE_TOPIC = "Follow more topic";
+            NOT_FOLLOWING_ANY_USER = "Not following any user";
+            FOLLOW_MORE_USER = "Follow More User";
+            NO_BLOG_POSTED_YET = "No blog posted yet";
+            BLOG_ABOUT_SOMETHING = "blog about something";
+            NO_QUESTES_POSTED_YET = "No quotes posted yet";
+
+            ADD_MORE_QUOTES = "Add more quotes";
+            NOT_FOLLOWED_BY_ANY_USER = "Not followed by any user";
+
+            POST_YOUR_QUESTION_HERE = "Post Your Question Here";
+            PLEASE_LOGIN_FIRST = "Please Lgin First";
+            CLOSE = "Close";
+            CLICK_HERE_TO_LOGIN = "Click here to login";
+
+            FOLLOWED_TOPIC = "Followed Topic";
+            CLICK_HERE_TO_MORE_TOPIC = "Click here to more topic";
+            PUT_YOUR_QUESTION_HERE = "Put Your Question Here";
+            EX = "Ex: What is,How to..";
+            TAG_SUGGESTION_DESCRIPTION = "Provide at least two tag related to your question. separate tag using Coma(,)";
+            TAG_EXMAPLE = "Ex:Java,Database,c language";
+            POST = "post";
+
+        } else {
+            EMAIL = "ईमेल";
+            PASSWORD = "पासवर्ड";
+            HOME = "होम";
+            LOGIN = "लॉग इन करें";
+            SIGNUP = "नया खाता बनाएँ";
+            SEARCH = "खोजे";
+
+            PROFILE = "प्रोफ़ाइल";
+            CONTACT_US = "हमसे संपर्क करें";
+            ABOUT_US = "हमारे बारे में";
+            LOGOUT = "बाहर जाये";
+            SELECT = "चयन करें";
+
+            PROFILE_DETAILS = "प्रोफ़ाइल का विवरण";
+            UPDATE_YOUR_PROFILE_IMAGE = "अपनी प्रोफ़ाइल छवि को अपडेट करें";
+            NAME = "नाम";
+            MAIL_ID = "ईमेल आईडी";
+            HIGHER_QUALIFICATION = "उच्च योग्यता";
+            BEST_ACHIEVEMENT = "सबसे अच्छी उपलब्धि";
+            BIO = "आपके बारे में";
+            COMPLETE_YOUR_PROFILE = "अपनी प्रोफाइल पूरी कीजिए";
+            YOUR_ACTIVITY = "आपकी गतिविधि";
+            QUESTION = "प्रशन";
+            ANSWER = "उत्तर";
+            TOPIC_FOLLOWED = "विषय का पालन किया";
+            FOLLOWING = "आपने जिसको अनुशरण किया";
+            FOLLOWERS = "अनुसरण करने वाले शिष्य";
+            BLOG = "ब्लॉग";
+            QUOTES = "उल्लेख";
+            ADD_MORE_QUESTION = "एक और सवाल जोड़ें";
+            FOLLOW_MORE_TOPIC = "अधिक विषय का पालन करें";
+            NOT_FOLLOWING_ANY_USER = "किसी भी उपयोगकर्ता का अनुसरण नहीं कर रहे है";
+            FOLLOW_MORE_USER = "अधिक उपयोगकर्ता का पालन करें";
+            NO_BLOG_POSTED_YET = "अभी तक कोई ब्लॉग पोस्ट नहीं किया गया";
+            BLOG_ABOUT_SOMETHING = "किसी चीज के बारे में ब्लॉग";
+            NO_QUESTES_POSTED_YET = "अभी तक कोई उद्धरण पोस्ट नहीं किया गया है";
+
+            ADD_MORE_QUOTES = "अधिक उद्धरण जोड़ें";
+            NOT_FOLLOWED_BY_ANY_USER = "किसी भी उपयोगकर्ता द्वारा पीछा नहीं किया गया";
+
+            POST_YOUR_QUESTION_HERE = "यहाँ अपना प्रश्न डाले";
+            PLEASE_LOGIN_FIRST = "पहले प्रवेश करें";
+            CLOSE = "बंद करे";
+            CLICK_HERE_TO_LOGIN = "लॉग इन करने के लिए यहां क्लिक करें";
+
+            FOLLOWED_TOPIC = "विषय जो आपको पसंद है";
+            CLICK_HERE_TO_MORE_TOPIC = "अधिक विषय के लिए यहां क्लिक करें";
+            PUT_YOUR_QUESTION_HERE = "अपना प्रश्न यहाँ रखें";
+            EX = "उदाहरण :कैसे है ,क्या है ";
+            TAG_SUGGESTION_DESCRIPTION = "अपने प्रश्न से संबंधित कम से कम दो टैग प्रदान करें। कोमा (,) का उपयोग करके अलग करे";
+            TAG_EXMAPLE = "उदाहरण :विज्ञान,भौतिक , रसायन विज्ञान  ";
+            POST = "post";
+        }
+    %>
+    <%@include file="site.jsp" %>
     <head>
 
         <meta charset="UTF-8">
@@ -35,7 +196,7 @@
             function take_value(user_id, id_of_user) {
             <% if (session.getAttribute("email") == null) { %>
                 alert("Please login first");<%
-                           } else { %>
+                } else { %>
                 // if(document.getElementById("myButton1").value==="Followed"){
                 // alert("Already followed");  
                 //}
@@ -53,7 +214,7 @@
                     alert(http.responseText);
                     //}
                 }
-            <% } %>
+            <% }%>
             }
         </script>
     </head>
@@ -80,7 +241,7 @@
                                         <div style="overflow: hidden; padding-right: .5em;">
                                             <form action="SearchBar.jsp">
                                                 <input type="text" style="width: 100%;" name="search" >
-                                                <button type="submit" style="float: right;width: 50px;" />Search</button>
+                                                <button type="submit" style="float: right;width: 50px;" /><%=SEARCH%></button>
                                             </form>
                                         </div>
 
@@ -88,7 +249,7 @@
                                     </div>
 
                                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 float-right textalign-right">
-                                        <a  href="index.jsp" class="helpicon" style="color: white; width: 50px;">Home</a>
+                                        <a  href="index.jsp" class="helpicon" style="color: white; width: 50px;"><%=HOME%></a>
                                         <a href="help.html"><img src="images/home/HelpIcon.png" class="helpicon"/></a>
 
                                     </div>
@@ -109,10 +270,10 @@
                                             String email = (String) session.getAttribute("email");
                                             if (email == null) {
                                         %><select class="helpicon w100 username" onchange="location = this.value;">
-                                            <option value="Login.jsp">Select</option>
-                                            <option value="Login.jsp">LogIn</option>
-                                            <option value="AboutUs.html">About us</option>
-                                            <option value="ContactUs.jsp">Contact Us</option>
+                                            <option value="Login.jsp"><%=SELECT%></option>
+                                            <option value="Login.jsp"><%=LOGIN%></option>
+                                            <option value="AboutUs.html"><%=ABOUT_US%></option>
+                                            <option value="ContactUs.jsp"><%=CONTACT_US%></option>
 
                                         </select><%
                                         } else {
@@ -145,10 +306,10 @@
                                         %>
                                         <select class="helpicon w100 username" onchange="location = this.value;">
                                             <option value="index.jsp"><%=firstname%></option>
-                                            <option value="profile.jsp?ID=<%=id_of_user%>">Profile</option>                                            
-                                            <option value="AboutUs.html">About us</option>
-                                            <option value="ContactUs.jsp">Contact Us</option>
-                                            <option value="Logout.jsp">Logout</option>
+                                            <option value="profile.jsp?ID=<%=id_of_user%>"><%=PROFILE%></option>                                            
+                                            <option value="AboutUs.html"><%=ABOUT_US%></option>
+                                            <option value="ContactUs.jsp"><%=CONTACT_US%></option>
+                                            <option value="Logout.jsp"><%=LOGOUT%></option>
                                         </select><%
                                             }
                                         %>
@@ -205,14 +366,14 @@
                                                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                                                     <div class="themeBox" style="min-height:500px;">
                                                         <div class="boxHeading">
-                                                            Profile Details
+                                                            <%=PROFILE_DETAILS%>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                                             <img src="images/UploadedImage/<%=ImagePath%>" alt="Image" style="width:90%; margin:10px 0px 0px; border:1px solid #ddd;">
                                                             <%
                                                                 if (session.getAttribute("email") != null) {
                                                                     if (mail.equals(session.getAttribute("email"))) {
-                                                                        out.println("<a href=UpdateUserProfile.jsp>Update your profile image</a>");
+                                                                        out.println("<a href=UpdateUserProfile.jsp>" + UPDATE_YOUR_PROFILE_IMAGE + "</a>");
                                                                     }
                                                                 }
                                                                 if (session.getAttribute("email") != null) {
@@ -237,7 +398,7 @@
                                                                                 }
                                                                             }
                                                                             if (Status == "present") {
-                                                                                out.println("<button>Following</button>");
+                                                                                out.println("<button>" + FOLLOWING + "</button>");
                                                                             } else {%>
                                                             <input type="button" class="float-right" value="Follow" id="myButton1" onclick="return take_value('<%=id_of_user%>', '<%=session_id_of_user%>');" />
                                                             <%
@@ -261,15 +422,15 @@
                                                         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                                             <table class="profiledetails">
                                                                 <tr>
-                                                                    <td>Name </td>
+                                                                    <td><%=NAME%> </td>
                                                                     <td>: <%=firstname + " " + lastname%></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Mail Id </td>
+                                                                    <td><%=MAIL_ID%> </td>
                                                                     <td>: <%=mail%></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Higher Qualification </td>
+                                                                    <td><%=HIGHER_QUALIFICATION%> </td>
                                                                     <td>: <%
                                                                         //higher_colification
                                                                         if (higher_colification == null || higher_colification.isEmpty()) {
@@ -280,7 +441,7 @@
                                                                         %></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Best Achievement</td>
+                                                                    <td><%=BEST_ACHIEVEMENT%></td>
                                                                     <td>: <%
                                                                         if (BestAchievement == null || BestAchievement.isEmpty()) {
                                                                             out.println("Not provided yet");
@@ -290,7 +451,7 @@
                                                                         %></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Bio </td>
+                                                                    <td><%=BIO%> </td>
                                                                     <td>: <%
                                                                         if (bio == null || bio.isEmpty()) {
                                                                             out.println("Not provided yet");
@@ -303,7 +464,7 @@
                                                                         if (session.getAttribute("email") != null) {
                                                                             if (mail.equals(session.getAttribute("email"))) {%>                                                               
                                                                 <tr>                                                   
-                                                                    <td><a href="UpdateUserProfile.jsp">Complete your profile</a></td>  
+                                                                    <td><a href="UpdateUserProfile.jsp"><%=COMPLETE_YOUR_PROFILE%></a></td>  
 
                                                                 </tr>
                                                                 <% }
@@ -323,16 +484,16 @@
 
                                                     <div class="themeBox" style="min-height:auto;">
                                                         <div class="boxHeading">
-                                                            Your Activity
+                                                            <%=YOUR_ACTIVITY%>
                                                         </div>
                                                         <div>
-                                                            <a href="profile.jsp?value=Question&ID=<%=ID%>">Question</a><br>
-                                                            <a href="profile.jsp?value=Answer&ID=<%=ID%>">Answer</a><br>
-                                                            <a href="profile.jsp?value=Topic&ID=<%=ID%>">Topic Followed</a><br>
-                                                            <a href="profile.jsp?value=Following&ID=<%=ID%>">Following</a><br>
-                                                            <a href="profile.jsp?value=Followers&ID=<%=ID%>">Followers</a><br>
-                                                            <a href="profile.jsp?value=Blog&ID=<%=ID%>">Blog</a><br>
-                                                            <a href="profile.jsp?value=Quotes&ID=<%=ID%>">Quotes</a><br>
+                                                            <a href="profile.jsp?value=Question&ID=<%=ID%>"><%=QUESTION%></a><br>
+                                                            <a href="profile.jsp?value=Answer&ID=<%=ID%>"><%=ANSWER%></a><br>
+                                                            <a href="profile.jsp?value=Topic&ID=<%=ID%>"><%=TOPIC_FOLLOWED%></a><br>
+                                                            <a href="profile.jsp?value=Following&ID=<%=ID%>"><%=FOLLOWING%></a><br>
+                                                            <a href="profile.jsp?value=Followers&ID=<%=ID%>"><%=FOLLOWERS%></a><br>
+                                                            <a href="profile.jsp?value=Blog&ID=<%=ID%>"><%=BLOG%></a><br>
+                                                            <a href="profile.jsp?value=Quotes&ID=<%=ID%>"><%=QUOTES%></a><br>
                                                         </div>
 
                                                     </div>
@@ -351,7 +512,7 @@
                                                                     if (ParametrVariable != null) {
                                                                         try {
                                                                             if (ParametrVariable.equals("Question")) {
-                                                                                out.println("<center><div class=boxHeading> Question </div></center>");
+                                                                                out.println("<center><div class=boxHeading>" + QUESTION + "</div></center>");
                                                                                 Statement stmt_q = null;
                                                                                 Connection con_q;
                                                                                 ResultSet rs_q;
@@ -368,9 +529,9 @@
                                                                                     Question_asked_by_user = rs_q.getString("question");
                                                                 %> <br>Q. <a href="Answer.jsp?Id=<%=Question_asked_by_user%>" ><%=Question_asked_by_user%> ?</a><%
                                                                     }
-                                                                     rs_q.close();
-                                                                        stmt_q.close();
-                                                                        con_q.close();
+                                                                    rs_q.close();
+                                                                    stmt_q.close();
+                                                                    con_q.close();
                                                                     if (count == 0) {
                                                                         out.println("<b style=color:red;>No question posted yet !!</b>");
                                                                     }
@@ -382,7 +543,7 @@
                                                                 <div class="row">
                                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                                                                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal">Add more question</button>
+                                                                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal"><%=ADD_MORE_QUESTION%></button>
                                                                         <!-- btn-info btn-lg -->
 
                                                                     </div>
@@ -395,12 +556,12 @@
                                                                         } catch (Exception ex) {
                                                                             out.println("What the hell is going on" + ex);
                                                                         }
-                                                                       
+
                                                                     }
 
                                                                     //Staring answer programming....................................................
                                                                     if (ParametrVariable.equals("Answer")) {
-                                                                        out.println("<center><div class=boxHeading> Answer </div></center>");
+                                                                        out.println("<center><div class=boxHeading>" + ANSWER + "</div></center>");
                                                                         Statement stmt_a = null, stmt_a2 = null;
                                                                         Connection con_a;
                                                                         ResultSet rs_a, rs_a2 = null;
@@ -438,7 +599,7 @@
                                                                         con_a.close();
                                                                     }
                                                                     if (ParametrVariable.equals("Topic")) {
-                                                                        out.println("<center><div class=boxHeading> Followed Topic </div></center>");
+                                                                        out.println("<center><div class=boxHeading>" + TOPIC_FOLLOWED + "</div></center>");
                                                                         Statement stmt_fetch_topic;
                                                                         Connection con_fetch_topic;
                                                                         ResultSet rs_fetch_topic;
@@ -459,8 +620,10 @@
                                                                                 count++;
                                                                                 topic_name = rs_fetch_topic.getString("topic_name");
                                                                                 topic_id = rs_fetch_topic.getInt("unique_id");
+                                                                                if (topic_name != null) {
                                                                 %><br> <a href="topic.jsp?id=<%=topic_id%>" >&nbsp;&nbsp;&nbsp;&nbsp;<%=topic_name%> </a><%
-                                                                                //out.println("<br>" + topic_name);
+                                                                                    //out.println("<br>" + topic_name);
+                                                                                }
                                                                             }
                                                                             if (count == 0) {
                                                                                 out.println("<b style=color:red;>No Topic followed yet !!</b>");
@@ -484,7 +647,7 @@
                                                                         }
                                                                     }
                                                                     if (ParametrVariable.equals("Following")) {
-                                                                        out.println("<center><div class=boxHeading> Following </div></center>");
+                                                                        out.println("<center><div class=boxHeading>" + FOLLOWING + "</div></center>");
                                                                         Statement stmt_fetch_topic;
                                                                         Connection con_fetch_topic;
                                                                         ResultSet rs_fetch_topic;
@@ -514,12 +677,12 @@
                                                                 <%
                                                                             }
                                                                             if (count == 0) {
-                                                                                out.println("<b style=color:red;>Not following any user !!</b>");
+                                                                                out.println("<b style=color:red;>" + NOT_FOLLOWING_ANY_USER + "!!</b>");
                                                                             }
                                                                             try {
                                                                                 if (session.getAttribute("email") != null) {
                                                                                     if (mail.equals(session.getAttribute("email"))) {
-                                                                                        out.println("<br><a href=UserProfile.jsp> Follow More User</a>");
+                                                                                        out.println("<br><a href=UserProfile.jsp>" + FOLLOW_MORE_USER + "</a>");
                                                                                     }
                                                                                 }
                                                                             } catch (Exception ex) {
@@ -535,7 +698,7 @@
                                                                         }
                                                                     }
                                                                     if (ParametrVariable.equals("Followers")) {
-                                                                        out.println("<center><div class=boxHeading> Followers </div></center>");
+                                                                        out.println("<center><div class=boxHeading>" + FOLLOWERS + "</div></center>");
                                                                         Statement stmt_fetch_topic;
                                                                         Connection con_fetch_topic;
                                                                         ResultSet rs_fetch_topic;
@@ -565,7 +728,7 @@
                                                                 <%
                                                                             }
                                                                             if (count == 0) {
-                                                                                out.println("<b style=color:red;>Not followed by any user !!</b>");
+                                                                                out.println("<b style=color:red;>" + NOT_FOLLOWED_BY_ANY_USER + "!!</b>");
                                                                             }
                                                                             rs_fetch_topic.close();
                                                                             stmt_fetch_topic.close();
@@ -611,7 +774,7 @@
                                                                     }
 
                                                                     if (ParametrVariable.equals("Quotes")) {
-                                                                        out.println("<center><div class=boxHeading> Quotes </div></center>");
+                                                                        out.println("<center><div class=boxHeading>" + QUOTES + "</div></center>");
                                                                         Statement stmt_q = null;
                                                                         Connection con_q;
                                                                         ResultSet rs_q;
@@ -629,12 +792,12 @@
                                                                 %> <br><%=quotes%> ?</a><%
                                                                         }
                                                                         if (count == 0) {
-                                                                            out.println("<b style=color:red;>No quotes posted yet !!</b>");
+                                                                            out.println("<b style=color:red;>" + NO_QUESTES_POSTED_YET + "!!</b>");
                                                                         }
                                                                         try {
                                                                             if (session.getAttribute("email") != null) {
                                                                                 if (mail.equals(session.getAttribute("email"))) {
-                                                                                    out.println("<br><a href=popup.jsp> Add more quotes</a>");
+                                                                                    out.println("<br><a href=popup.jsp>" + ADD_MORE_QUOTES + "</a>");
                                                                                 }
                                                                             }
                                                                         } catch (Exception ex) {
@@ -681,7 +844,7 @@
                                                                     }
 
                                                                     if (ParametrVariable.equals("Blog")) {
-                                                                        out.println("<center><div class=boxHeading> Blog </div></center>");
+                                                                        out.println("<center><div class=boxHeading>" + BLOG + "</div></center>");
                                                                         Statement stmt_q = null;
                                                                         Connection con_q;
                                                                         ResultSet rs_q;
@@ -700,12 +863,12 @@
                                                                 %> <br><a href="D_Blog.jsp?Blog_Id=<%=Blog_id%>"><%=blog_posted_by_user%></a><%
                                                                         }
                                                                         if (count == 0) {
-                                                                            out.println("<b style=color:red;>No blog posted yet !!</b>");
+                                                                            out.println("<b style=color:red;>" + NO_BLOG_POSTED_YET + "!!</b>");
                                                                         }
                                                                         try {
                                                                             if (session.getAttribute("email") != null) {
                                                                                 if (mail.equals(session.getAttribute("email"))) {
-                                                                                    out.println("<br><a href=WriteBlogHere.jsp> blog about something</a>");
+                                                                                    out.println("<br><a href=WriteBlogHere.jsp>" + BLOG_ABOUT_SOMETHING + "</a>");
                                                                                 }
                                                                             }
                                                                         } catch (Exception ex) {
@@ -754,7 +917,7 @@
                                                                             out.println("Error:" + e);
                                                                         }
                                                                     }//IF statement closed here
-                                                                %>
+%>
 
                                                                 <div class="clear-fix"></div>
                                                             </div>
@@ -773,6 +936,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="modal fade" id="myModal" role="dialog">
                                         <div class="modal-dialog">
 
@@ -781,33 +945,33 @@
 
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title">Post Your Question Here</h4>
+                                                    <h4 class="modal-title"><%=POST_YOUR_QUESTION_HERE%></h4>
                                                 </div>
                                                 <%if (session.getAttribute("email") != null) {%>
                                                 <form name="submitquestion" method="post" action="SubmitQuestion.jsp">
                                                     <div class="modal-body">
                                                         <div>
-                                                            <div>Put Your Question Here</div>                                                        
-                                                            <textarea type="text" class="anstext" name="question" placeholder="Ex: What is,How to.." required=""></textarea></div>
+                                                            <div><%=PUT_YOUR_QUESTION_HERE%></div>                                                        
+                                                            <textarea type="text" class="anstext" name="question" placeholder="<%=EX%>" required=""></textarea></div>
                                                         <div class="margintop20">
-                                                            <div>Provide at least two tag related to your question. separate tag using Coma(,) </div>
-                                                            <textarea type="text" class="anstext" name="tag_of_question" placeholder="Ex : Java,Database,c language" required=""></textarea></div>
+                                                            <div><%=TAG_SUGGESTION_DESCRIPTION%> </div>
+                                                            <textarea type="text" class="anstext" name="tag_of_question" placeholder="<%=TAG_EXMAPLE%>" required=""></textarea></div>
                                                         <!-- <p>Some text in the modal.</p> -->
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="btn">Post</button>
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn"><%=POST%></button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal"><%=CLOSE%></button>
                                                     </div>
                                                 </form>
                                                 <%} else {%>
                                                 <div class="modal-body">
                                                     <div>
-                                                        <div><h4 style="color: red;">Please Login first!!!</h4></div>
-                                                        <div><a href="Login.jsp">Click here to login</a></div>
+                                                        <div><h4 style="color: red;"><%=PLEASE_LOGIN_FIRST%>!!!</h4></div>
+                                                        <div><a href="Login.jsp"><%=CLICK_HERE_TO_LOGIN%></a></div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">                                                    
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal"><%=CLOSE%></button>
                                                 </div>
 
                                                 <%}%>

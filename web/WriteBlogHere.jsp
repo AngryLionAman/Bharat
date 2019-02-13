@@ -1,6 +1,33 @@
 <html lang="en"><head>
         <script src="ckeditor/ckeditor.js"></script>
         <meta charset="UTF-8">
+         <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+        
+         <%!
+             String WRITE_BLOG_SUBJECT = "";
+             String WRITE_BLOG_DESCRIPTION = "";
+             String SUBMIT = "";
+             String COMPLETE_YOUR_PROFILE = "";
+             String TRENDING_QESTION = "";
+             %>
+         <%
+            if (request.getParameter("lang") != "hindi") {
+              
+                WRITE_BLOG_SUBJECT = "ब्लॉग का विषय लिखें";
+                WRITE_BLOG_DESCRIPTION = "ब्लॉग को लिखें";
+                SUBMIT = "SAVE करने के लिए यहाँ CLICK करे";
+                COMPLETE_YOUR_PROFILE = "अपनी प्रोफाइल पूरी कीजिए";
+                TRENDING_QESTION = "ट्रेंडिंग सवाल";
+                   } else {
+               
+               WRITE_BLOG_SUBJECT = "Write the Blog Subject";
+                WRITE_BLOG_DESCRIPTION = "Write your Blog Description";
+                SUBMIT = "Submit";
+                COMPLETE_YOUR_PROFILE = "Complete Your Profile";
+                TRENDING_QESTION = "Trending question";
+            }
+            %>
+        
         <!-- For IE -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -41,16 +68,16 @@
 
                                                                 <div class="boxHeading marginbot10">
                                                                     <div class="themeBox" style="height:auto;">
-                                                                        Write the Blog Subject: 
+                                                                        <%=WRITE_BLOG_SUBJECT%> : 
                                                                         <div class="boxHeading">
                                                                             <textarea type="text" class="anstext" name="blog_subject" required="" ></textarea>
                                                                         </div>
                                                                     </div>
 
                                                                 </div>
-                                                                <b>Write your Blog Description:</b>
-                                                                <textarea class="ckeditor" name="blog_description" required ></textarea>
-                                                                <input type="submit" name="Post" value="Submit"> 
+                                                                <b><%=WRITE_BLOG_DESCRIPTION%> :</b>
+                                                                <textarea class="ckeditor" name="blog_description" required="" ></textarea>
+                                                                <input type="submit" name="Post" value="<%=SUBMIT%>"> 
                                                             </form>
 
 
@@ -66,7 +93,7 @@
                                                     %>
                                                     <div class="themeBox" style="height:330px;">
                                                         <div class="boxHeading">
-                                                            Complete Your Profile
+                                                            <%=COMPLETE_YOUR_PROFILE%>
                                                         </div>
                                                         <div><jsp:include page="CompleteUserProfile.jsp" /></div>
 
@@ -77,7 +104,7 @@
                                                     %>
                                                     <div class="themeBox" style="height:auto;">
                                                         <div class="boxHeading">
-                                                            Trending Question
+                                                            <%=TRENDING_QESTION%>
                                                         </div>
                                                         <div>
                                                             <jsp:include page="TrendingQuestion.jsp" />

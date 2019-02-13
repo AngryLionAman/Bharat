@@ -2,6 +2,22 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+         <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+         <%
+             String TOPIC_MAY_YOU_LIKE = "";
+             String FOLLOW = "";
+             String FOLLOWED = "";
+              if (request.getParameter("lang") != "hindi") {
+              TOPIC_MAY_YOU_LIKE = "विषय, आपको पसंद आ सकता है";
+              FOLLOW = "फॉलो करे";
+              FOLLOWED = "फॉलो कर चुके हैं";
+                  
+            } else {
+              TOPIC_MAY_YOU_LIKE = "Topic, may you like";
+              FOLLOW = "Follow";
+              FOLLOWED = "Followed";
+              }
+            %>
         <!-- For IE -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -58,7 +74,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="themeBox" style="height:auto;margin-bottom:0px;">
                                         <div class="boxHeading">
-                                            Topic, May you like!
+                                           <%=TOPIC_MAY_YOU_LIKE%>
                                         </div>
                                         <%  Statement stmt_topic = null;
                                             Connection con_topic = null;
@@ -100,9 +116,9 @@
                                             %>
                                             <%
                                                 if (Status == "present")
-                                                    out.println("<button>Followed</button>");
+                                                    out.println("<button>"+FOLLOWED+"</button>");
                                                 else {%>
-                                            <input type="button" value="Follow" id="myButton1" onclick="return take_value('<%=_topic_id%>', '<%=id_of_user%>');" />
+                                                <input type="button" value="<%=FOLLOW%>" id="myButton1" onclick="return take_value('<%=_topic_id%>', '<%=id_of_user%>');" />
                                             <% }
                                                         Status = null;
                                                         out.println("</div>");

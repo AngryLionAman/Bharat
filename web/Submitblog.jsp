@@ -25,7 +25,7 @@
     } else {
        // session.setAttribute("URL", URL);
         //response.sendRedirect("Login.jsp?Error=Please Login");
-        //out.println("please login first" + URL);
+        out.println("please login first");
     }
 
 %>

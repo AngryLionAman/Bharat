@@ -69,10 +69,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        \n");
       out.write("        ");
 
-            String SEARCH = "";
-            String HOME = "";
-            String LOGIN = "";
-            String SELECT = "";
+            //String SEARCH = "";
+            //String HOME = "";
+            //String LOGIN = "";
+            //String SELECT = "";
             String TOPIC_YOU_MAY_LIKE = "";
             String POST_SOMETHING = "";
             String POST_SOME_THING_HERE = "";
@@ -80,17 +80,29 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
             String QUESTION_YOU_MAY_LIKE = "";
             String POSTED_BY = "";
             String TRENDING_QUESTION = "";
-            String ABOUT_US = "";
-            String CONTECT_US = "";
+            //String ABOUT_US = "";
+            //String CONTECT_US = "";
             String POST_YOUR_QUESTION_HERE = "";
             String PLEASE_LOGIN_FIRST = "";
             String CLOSE = "";
             String CLICK_HERE_TO_LOGIN ="";
+            
+            String FOLLOWED_TOPIC = "";
+            String CLICK_HERE_TO_MORE_TOPIC = "";
+            String PUT_YOUR_QUESTION_HERE = "";
+            String EX = "";
+            String TAG_SUGGESTION_DESCRIPTION = "";
+            String TAG_EXMAPLE = "";
+            String RECENT_POSTED_QUESTION = "";
+            String RELATED_QUESTION = "";
+            String YOUR_CURRENT_NODIFICATION = "";
+            
+            
             if (request.getParameter("lang") != "hindi") {
-                SEARCH = "खोजे";
-                HOME = "होम";
-                LOGIN = "लॉग इन करें";
-                SELECT = "चयन";
+              //  SEARCH = "खोजे";
+               // HOME = "होम";
+                //LOGIN = "लॉग इन करें";
+                //SELECT = "चयन";
                 TOPIC_YOU_MAY_LIKE = "विषय आपको पसंद आ सकता है";
                 POST_SOMETHING = "कुछ पोस्ट करें";
                 POST_SOME_THING_HERE = "यहाँ कुछ पोस्ट करें";
@@ -98,18 +110,29 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
                 QUESTION_YOU_MAY_LIKE = "सवाल आपको पसंद आ सकता है";
                 POSTED_BY = "द्वारा प्रकाशित";
                 TRENDING_QUESTION = "सक्रिय प्रश्न";
-                ABOUT_US = "हमारे बारे में";
-                CONTECT_US = "हमसे संपर्क करें";
+              //  ABOUT_US = "हमारे बारे में";
+                //CONTECT_US = "हमसे संपर्क करें";
                 POST_YOUR_QUESTION_HERE = "यहाँ अपना प्रश्न डाले";
                 PLEASE_LOGIN_FIRST = "पहले प्रवेश करें";
                 CLOSE = "बंद करे";
                 CLICK_HERE_TO_LOGIN ="लॉग इन करने के लिए यहां क्लिक करें";
+                
+                FOLLOWED_TOPIC = "विषय जो आपको पसंद है";
+                CLICK_HERE_TO_MORE_TOPIC = "अधिक विषय के लिए यहां क्लिक करें";
+                PUT_YOUR_QUESTION_HERE = "अपना प्रश्न यहाँ रखें";
+                 EX = "उदाहरण :कैसे है ,क्या है ";
+                 TAG_SUGGESTION_DESCRIPTION = "अपने प्रश्न से संबंधित कम से कम दो टैग प्रदान करें। कोमा (,) का उपयोग करके अलग करे";
+                 TAG_EXMAPLE = "उदाहरण :विज्ञान,भौतिक , रसायन विज्ञान  ";
+                 RECENT_POSTED_QUESTION = "हाल ही में पोस्ट किया गया सवाल";
+                 RELATED_QUESTION = "संबंधित सवाल";
+                 
+                 YOUR_CURRENT_NODIFICATION = "आपकी वर्तमान अधिसूचना";
 
             } else {
-                SEARCH = "Search";
-                HOME = "Home";
-                LOGIN = "Login";
-                SELECT = "Select";
+                //SEARCH = "Search";
+                //HOME = "Home";
+                //LOGIN = "Login";
+                //SELECT = "Select";
                 TOPIC_YOU_MAY_LIKE = "Topic You May Like";
                 POST_SOMETHING = "Post Something";
                 POST_SOME_THING_HERE = "Post Something here";
@@ -117,12 +140,24 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
                 QUESTION_YOU_MAY_LIKE = "Question You May Like";
                 POSTED_BY = "Posted By";
                 TRENDING_QUESTION = "Tranding Question";
-                ABOUT_US = "About Us";
-                CONTECT_US = "Contect Us";
+                //ABOUT_US = "About Us";
+                //CONTECT_US = "Contect Us";
                 POST_YOUR_QUESTION_HERE = "Post Your Question Here";
                 PLEASE_LOGIN_FIRST = "Please Lgin First";
                 CLOSE = "Close";
                 CLICK_HERE_TO_LOGIN = "Click here to login";
+                
+                FOLLOWED_TOPIC = "Followed Topic";
+                CLICK_HERE_TO_MORE_TOPIC = "Click here to more topic";
+                PUT_YOUR_QUESTION_HERE = "Put Your Question Here";
+                 EX = "Ex: What is,How to..";
+                 TAG_SUGGESTION_DESCRIPTION = "Provide at least two tag related to your question. separate tag using Coma(,)";
+                 TAG_EXMAPLE = "Ex:Java,Database,c language";
+                 RECENT_POSTED_QUESTION = "Recent posted Question";
+                 RELATED_QUESTION = "Related Question";
+                 
+                 YOUR_CURRENT_NODIFICATION = "Your current nodification";
+
             }
             
       out.write("\n");
@@ -163,6 +198,51 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("            ");
+      out.write("\n");
+      out.write("<meta charset=\"UTF-8\">\n");
+
+    String EMAIL = "";
+    String PASSWORD = "";
+    String HOME = "";
+    String LOGIN = "";
+    String SIGNUP = "";
+    String SEARCH = "";
+    String PROFILE = "";
+    String CONTACT_US = "";
+    String ABOUT_US = "";
+    String LOGOUT = "";
+    String SELECT = "";
+
+    if (request.getParameter("lang") == "eng") {
+        EMAIL = "Email";
+        PASSWORD = "Password";
+        HOME = "Home";
+        LOGIN = "Login";
+        SIGNUP = "SignUp";
+        SEARCH = "Search";
+
+        PROFILE = "Profile";
+        CONTACT_US = "contact Us";
+        ABOUT_US = "About Us";
+        LOGOUT = "Logout";
+        SELECT = "Select";
+
+    } else {
+        EMAIL = "ईमेल";
+        PASSWORD = "पासवर्ड";
+        HOME = "होम";
+        LOGIN = "लॉग इन करें";
+        SIGNUP = "नया खाता बनाएँ";
+        SEARCH = "खोजे";
+
+        PROFILE = "प्रोफ़ाइल";
+        CONTACT_US = "हमसे संपर्क करें";
+        ABOUT_US = "हमारे बारे में";
+        LOGOUT = "बाहर जाये";
+        SELECT = "चयन करें";
+    }
+
+      out.write("\n");
       out.write("<header class=\"home-page\">\n");
       out.write("    <div class=\"container clear-fix\">\n");
       out.write("        <div class=\"col-lg-3 col-md-3 col-sm-12 col-xs-12\" style=\"padding-left:0px;\">\n");
@@ -181,7 +261,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div style=\"overflow: hidden; padding-right: .5em;\">\n");
       out.write("                                <form action=\"SearchBar.jsp\">\n");
       out.write("                                    <input type=\"text\" style=\"width: 100%;\" name=\"search\" required=\"\" >\n");
-      out.write("                                    <button type=\"submit\" style=\"float: right;width: 50px;\" />Search</button>\n");
+      out.write("                                    <button type=\"submit\" style=\"float: right;width: 50px;\" />");
+      out.print(SEARCH);
+      out.write("</button>\n");
       out.write("                                </form>\n");
       out.write("                            </div>\n");
       out.write("\n");
@@ -192,10 +274,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"col-lg-2 col-md-2 col-sm-12 col-xs-12 float-right textalign-right\">\n");
       out.write("                            ");
 if (session.getAttribute("email") == null) {
-      out.write("<a href=\"Login.jsp\" class=\"helpicon\" style=\"color: white;padding-right: 50px; \">Login</a>");
+      out.write("<a href=\"Login.jsp\" class=\"helpicon\" style=\"color: white;padding-right: 50px; \">");
+      out.print(LOGIN);
+      out.write("</a>");
  } 
       out.write("\n");
-      out.write("                            <a href=\"index.jsp\" class=\"helpicon\" style=\"color: white;padding-right: 50px; \">Home</a>\n");
+      out.write("                            <a href=\"index.jsp\" class=\"helpicon\" style=\"color: white;padding-right: 50px; \">");
+      out.print(HOME);
+      out.write("</a>\n");
       out.write("                            <a href=\"help.jsp\"><img src=\"images/home/HelpIcon.png\" class=\"helpicon\"/></a>\n");
       out.write("                            ");
  if (session.getAttribute("email") != null) {
@@ -220,9 +306,9 @@ if (session.getAttribute("email") == null) {
       out.write("\n");
       out.write("                            ");
 
-                             if (session.getAttribute("URL") != null) {
-                                                session.setAttribute("URL", null);
-                                            }
+                                if (session.getAttribute("URL") != null) {
+                                    session.setAttribute("URL", null);
+                                }
                             
       out.write("\n");
       out.write("                            ");
@@ -234,10 +320,18 @@ if (session.getAttribute("email") == null) {
                                 if (email == null) {
                             
       out.write("<select class=\"helpicon w100 username\" onchange=\"location = this.value;\">\n");
-      out.write("                                <option value=\"Login.jsp\">Select</option>\n");
-      out.write("                                <option value=\"Login.jsp\">LogIn</option>\n");
-      out.write("                                <option value=\"AboutUs.jsp\">About us</option>\n");
-      out.write("                                <option value=\"ContactUs.jsp\">Contact Us</option>\n");
+      out.write("                                <option value=\"Login.jsp\">");
+      out.print(SELECT);
+      out.write("</option>\n");
+      out.write("                                <option value=\"Login.jsp\">");
+      out.print(LOGIN);
+      out.write("</option>\n");
+      out.write("                                <option value=\"AboutUs.jsp\">");
+      out.print(ABOUT_US);
+      out.write("</option>\n");
+      out.write("                                <option value=\"ContactUs.jsp\">");
+      out.print(CONTACT_US);
+      out.write("</option>\n");
       out.write("                            </select>");
 
                             } else {
@@ -272,10 +366,19 @@ if (session.getAttribute("email") == null) {
       out.write("</option>\n");
       out.write("                                <option value=\"profile.jsp?ID=");
       out.print(id_of_user);
-      out.write("\">Profile</option>\n");
-      out.write("                                <option value=\"AboutUs.jsp\">About us</option>\n");
-      out.write("                                <option value=\"ContactUs.jsp\">Contact Us</option>\n");
-      out.write("                                <option value=\"Logout.jsp\">Logout</option>\n");
+      out.write('"');
+      out.write('>');
+      out.print(PROFILE);
+      out.write("</option>\n");
+      out.write("                                <option value=\"AboutUs.jsp\">");
+      out.print(ABOUT_US);
+      out.write("</option>\n");
+      out.write("                                <option value=\"ContactUs.jsp\">");
+      out.print(CONTACT_US);
+      out.write("</option>\n");
+      out.write("                                <option value=\"Logout.jsp\">");
+      out.print(LOGOUT);
+      out.write("</option>\n");
       out.write("                            </select>");
 
                                 }
@@ -340,7 +443,9 @@ if (session.getAttribute("email") == null) {
                                                 }
                                             
       out.write("\n");
-      out.write("                                        <a href=\"FollowMoreTopic.jsp\">Click here to more topic</a>\n");
+      out.write("                                        <a href=\"FollowMoreTopic.jsp\">");
+      out.print(CLICK_HERE_TO_MORE_TOPIC);
+      out.write("</a>\n");
       out.write("                                    </ul>\n");
       out.write("                                </div>\n");
       out.write("\n");
@@ -357,7 +462,9 @@ if (session.getAttribute("email") == null) {
       out.write("\n");
       out.write("                            <div class=\"themeBox\" style=\"height:auto;\">\n");
       out.write("                                <div class=\"boxHeading\" >\n");
-      out.write("                                    Followed Topic\n");
+      out.write("                                    ");
+      out.print(FOLLOWED_TOPIC);
+      out.write("\n");
       out.write("                                </div>\n");
       out.write("\n");
       out.write("                                ");
@@ -442,7 +549,9 @@ if (session.getAttribute("email") == null) {
                                     
       out.write("\n");
       out.write("\n");
-      out.write("                                    <h4>Recent posted Question</h4>\n");
+      out.write("                                    <h4>");
+      out.print(RECENT_POSTED_QUESTION);
+      out.write("</h4>\n");
       out.write("                                    ");
                                         Statement Trending_stmt_T;
                                         Connection Trending_con_T;
@@ -481,7 +590,9 @@ if (session.getAttribute("email") == null) {
       out.write("                                        </div>\n");
       out.write("                                        <div class=\"questionArea\">\n");
       out.write("\n");
-      out.write("                                            <div class=\"postedBy\">Posted By :<a href=\"profile.jsp?ID=");
+      out.write("                                            <div class=\"postedBy\">");
+      out.print(POSTED_BY);
+      out.write(" :<a href=\"profile.jsp?ID=");
       out.print(id_for_user_name_T);
       out.write("\"> ");
       out.print(UserName_for_trending_question_T);
@@ -502,7 +613,9 @@ if (session.getAttribute("email") == null) {
                                     
       out.write(" \n");
       out.write("\n");
-      out.write("                                    <h4>Related Question</h4>  \n");
+      out.write("                                    <h4>");
+      out.print(RELATED_QUESTION);
+      out.write("</h4>  \n");
       out.write("                                    ");
   Statement stmt1 = null;
                                         Statement stmt2 = null;
@@ -548,7 +661,9 @@ if (session.getAttribute("email") == null) {
       out.write(" ?</a>\n");
       out.write("                                        </div>\n");
       out.write("                                        <div class=\"questionArea\">\n");
-      out.write("                                            <div class=\"postedBy\">Posted By : <a href=\"profile.jsp?ID=");
+      out.write("                                            <div class=\"postedBy\">");
+      out.print(POSTED_BY);
+      out.write(" : <a href=\"profile.jsp?ID=");
       out.print(ide);
       out.write('"');
       out.write('>');
@@ -885,11 +1000,19 @@ if (session.getAttribute("email") != null) {
       out.write("                        <form name=\"submitquestion\" method=\"post\" action=\"SubmitQuestion.jsp\">\n");
       out.write("                            <div class=\"modal-body\">\n");
       out.write("                                <div>\n");
-      out.write("                                    <div>Put Your Question Here</div>                                                        \n");
-      out.write("                                    <textarea type=\"text\" class=\"anstext\" name=\"question\" placeholder=\"Ex: What is,How to..\" required=\"\"></textarea></div>\n");
+      out.write("                                    <div>");
+      out.print(PUT_YOUR_QUESTION_HERE);
+      out.write("</div>                                                        \n");
+      out.write("                                    <textarea type=\"text\" class=\"anstext\" name=\"question\" placeholder=\"");
+      out.print(EX);
+      out.write("\" required=\"\"></textarea></div>\n");
       out.write("                                <div class=\"margintop20\">\n");
-      out.write("                                    <div>Provide at least two tag related to your question. separate tag using Coma(,) </div>\n");
-      out.write("                                    <textarea type=\"text\" class=\"anstext\" name=\"tag_of_question\" placeholder=\"Ex : Java,Database,c language\" required=\"\"></textarea></div>\n");
+      out.write("                                    <div>");
+      out.print(TAG_SUGGESTION_DESCRIPTION);
+      out.write(" </div>\n");
+      out.write("                                    <textarea type=\"text\" class=\"anstext\" name=\"tag_of_question\" placeholder=\"");
+      out.print(TAG_EXMAPLE);
+      out.write("\" required=\"\"></textarea></div>\n");
       out.write("                                <!-- <p>Some text in the modal.</p> -->\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"modal-footer\">\n");
@@ -938,7 +1061,9 @@ if (session.getAttribute("email") != null) {
       out.write("\n");
       out.write("                        <div class=\"modal-header\">\n");
       out.write("                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n");
-      out.write("                            <h4 class=\"modal-title\">Your current nodification</h4>\n");
+      out.write("                            <h4 class=\"modal-title\">");
+      out.print(YOUR_CURRENT_NODIFICATION);
+      out.write("</h4>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"modal-body\">\n");
       out.write("                            <div>\n");

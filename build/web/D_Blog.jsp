@@ -1,4 +1,28 @@
-<html lang="en"><head>
+<html lang="en">
+    <head>
+          <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+         <%
+             String SUBJECT = "";
+             String POSTED_BY = "";
+             String DESCRIPTION = "";
+             String COMPLETE_YOUR_PROFILE = "";
+             String TRENDING_QUUESTION = "";
+             
+            if (request.getParameter("lang") != "hindi") {
+              SUBJECT = "विषय";
+              POSTED_BY = "द्वारा प्रकाशित";
+              DESCRIPTION = "विवरण";
+              COMPLETE_YOUR_PROFILE = "अपनी प्रोफाइल पूरी कीजिए";
+              TRENDING_QUUESTION = "ट्रेंडिंग सवाल";
+               
+            } else {
+              SUBJECT = "Subject";
+              POSTED_BY = "Posted by";
+              DESCRIPTION = "Description";
+              COMPLETE_YOUR_PROFILE = "Complete your profile";
+              TRENDING_QUUESTION = "Trending question";
+            }
+            %>
         <%
             String str = request.getParameter("Blog_Id");
             //String str = request.getParameter("id");
@@ -34,11 +58,10 @@
         <%@page language="java" %>
         <%@page import="java.sql.*" %> 
         <%@include file="site.jsp" %>
-        <%            Statement stmt1 = null;
-            // Statement stmt6 = null;
+        <%            
+            Statement stmt1 = null;
             Connection con1 = null;
             ResultSet rs1 = null;
-            // ResultSet rs6 = null;
             String StoredQuestion = "";
             String StoredAnswer = "";
             String FirstName = "";
@@ -48,8 +71,6 @@
                 Class.forName("com.mysql.jdbc.Driver");
                 con1 = DriverManager.getConnection(DB_URL_, DB_USERNAME_, DB_PASSWORD_);
                 stmt1 = con1.createStatement();
-                //  stmt6 = con1.createStatement();
-                //String p = "SELECT * FROM blog WHERE blog_id = '" + Question + "'";
                 String p = "SELECT b.blog_subject, substring(b.blog,1,500),user.firstname,user.lastname,user.id FROM blog b right join newuser user on b.blog_posted_by = user.Id  WHERE blog_id = '" + Question + "'";
                 rs1 = stmt1.executeQuery(p);
                 while (rs1.next()) {
@@ -58,19 +79,11 @@
                     FirstName = rs1.getString("firstname");
                     LastName = rs1.getString("lastname");
                     UserID = rs1.getInt("ID");
-
-                    //String p6 = "SELECT b.blog_subject, substring(b.blog,1,500),user.firstname,user.lastname,user.id FROM blog b right join newuser user on b.blog_posted_by = user.Id  WHERE blog_id = '" + Question + "'";
-                    //rs6 = stmt6.executeQuery(p6);
-                    //while (rs6.next()) {
-                    //  StoredAnswer = rs6.getString("substring(b.blog,1,500)");
-                    //}
                 }
 
             } catch (Exception e) {
                 out.println("Unable to retrieve!!" + e);
             } finally {
-                // stmt6.close();
-                //  rs6.close();
                 stmt1.close();
                 con1.close();
                 rs1.close();
@@ -116,15 +129,15 @@
 
                                         <div class="boxHeading marginbot10">
 
-                                            Subject :  <%=StoredQuestion%> 
+                                            <%=SUBJECT%> :  <%=StoredQuestion%> 
                                         </div>
                                         <div class="questionArea">
 
-                                            <div class="postedBy">Posted By :<a href="profile.jsp?ID=<%=UserID%>"><%=FirstName + " " + LastName%></a></div>
+                                            <div class="postedBy"><%=POSTED_BY%> :<a href="profile.jsp?ID=<%=UserID%>"><%=FirstName + " " + LastName%></a></div>
 
                                         </div>
                                     </div>
-                                    <div class="boxHeading marginbot10">Description</div>
+                                    <div class="boxHeading marginbot10"><%=DESCRIPTION%></div>
 
                                     <%
                                         Statement stmt2 = null;
@@ -168,7 +181,7 @@
                             %>
                             <div class="themeBox" style="height:auto;">
                                 <div class="boxHeading">
-                                    Complete Your Profile
+                                    <%=COMPLETE_YOUR_PROFILE%>
                                 </div>
                                 <div><jsp:include page="CompleteUserProfile.jsp" /></div>
 
@@ -179,7 +192,7 @@
                             %>
                             <div class="themeBox" style="height:auto;">
                                 <div class="boxHeading">
-                                    Trending Question
+                                    <%=TRENDING_QUUESTION%>
                                 </div>
                                 <div>
                                     <jsp:include page="TrendingQuestion.jsp" />

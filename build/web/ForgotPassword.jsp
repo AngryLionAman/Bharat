@@ -17,7 +17,27 @@
 <%@include file="site.jsp" %>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">       
+        <meta charset="UTF-8">  
+         <%
+             String SEARCH = "";
+             String SIGN_UP = "";
+             String LOGIN = "";
+             String EMAIL = "";
+             String RESET_PASSWORD = "";
+              if (request.getParameter("lang") == "hindi") {
+              SEARCH = "Search";
+              SIGN_UP = "SignUp";
+              LOGIN = "Login";
+              EMAIL = "Enter your mail here";
+              RESET_PASSWORD = "Reset password";
+                  
+            } else {
+              SEARCH = "खोजे";
+              SIGN_UP = "नया अकाउंट बनाये";
+              LOGIN = "लॉग इन करें";
+              EMAIL = "यहां अपना मेल डालें";
+              RESET_PASSWORD = "पासवर्ड रीसेट";}
+            %>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Forger Password | InquiryHere.com</title>
@@ -67,13 +87,13 @@
                                         <div style="overflow: hidden; padding-right: .5em;">
                                             <form action="SearchBars.jsp">
                                                 <input type="text" style="width: 100%;" name="search" >
-                                                <button type="submit" style="float: right;width: 50px;" />Search</button>
+                                                <button type="submit" style="float: right;width: 50px;" /><%=SEARCH%></button>
                                             </form>
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 float-right textalign-right">
-                                        <a  href="Login.jsp" class="helpicon" style="color: white; width: 50px;">Login</a>
-                                        <a  href="signup.jsp" class="helpicon" style="color: white; width: 50px;">SignUp</a>
+                                        <a  href="Login.jsp" class="helpicon" style="color: white; width: 50px;"><%=LOGIN%></a>
+                                        <a  href="signup.jsp" class="helpicon" style="color: white; width: 50px;"><%=SIGN_UP%></a>
                                     </div>
                                     </div>
                                     </header>
@@ -92,11 +112,11 @@
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="themeBox" style="height:270px;">
                                                                     <form action="ForgotPassword.jsp" method="post" name="">
-                                                                        <label for="fname">Email</label>
+                                                                        <label for="fname"><%=EMAIL%></label>
                                                                         <div class="boxHeading">
                                                                             <input type="text" id="fname" name="email" required="">
                                                                         </div>  
-                                                                        <button class="button button1">Reset password</button>
+                                                                        <button class="button button1"><%=RESET_PASSWORD%></button>
                                                                     </form>                                                                    
                                                                 </div>
                                                             </div>
